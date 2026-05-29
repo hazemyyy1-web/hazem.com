@@ -4,35 +4,216 @@
 
 @layer base {
   :root {
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%
+    --cyber-bg: #030712;
+    --cyber-bg-alt: #0b0f19;
+    --cyber-green: #10b981;
+    --cyber-green-bright: #00ff99;
+    --cyber-green-dark: #059669;
+    --cyber-gray: #1f2937;
+    --cyber-gray-light: #374151;
+    --cyber-gray-lighter: #4b5563;
+    --cyber-white: #f9fafb;
+    --cyber-white-muted: #d1d5db;
   }
 
-  .dark {
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cyber-bg text-cyber-white antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    text-align: right;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--cyber-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--cyber-gray-light);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--cyber-green);
+  }
+
+  /* Selection */
+  ::selection {
+    background: var(--cyber-green);
+    color: var(--cyber-bg);
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid var(--cyber-green);
+    outline-offset: 2px;
   }
 }
 
+@layer utilities {
+  .bg-cyber-bg {
+    background-color: var(--cyber-bg);
+  }
 
+  .bg-cyber-bg-alt {
+    background-color: var(--cyber-bg-alt);
+  }
 
-img {
-  object-position: top;
-}
+  .text-cyber-green {
+    color: var(--cyber-green);
+  }
 
-.fixed {
-  position: fixed;
+  .bg-cyber-green {
+    background-color: var(--cyber-green);
+  }
+
+  .border-cyber-green {
+    border-color: var(--cyber-green);
+  }
+
+  .text-cyber-white {
+    color: var(--cyber-white);
+  }
+
+  .text-cyber-white\/70 {
+    color: rgba(249, 250, 251, 0.7);
+  }
+
+  .text-cyber-white\/60 {
+    color: rgba(249, 250, 251, 0.6);
+  }
+
+  .text-cyber-white\/50 {
+    color: rgba(249, 250, 251, 0.5);
+  }
+
+  .text-cyber-white\/40 {
+    color: rgba(249, 250, 251, 0.4);
+  }
+
+  .text-cyber-white\/30 {
+    color: rgba(249, 250, 251, 0.3);
+  }
+
+  .text-cyber-white\/20 {
+    color: rgba(249, 250, 251, 0.2);
+  }
+
+  .text-cyber-white\/10 {
+    color: rgba(249, 250, 251, 0.1);
+  }
+
+  .text-cyber-white\/5 {
+    color: rgba(249, 250, 251, 0.05);
+  }
+
+  .bg-cyber-white\/5 {
+    background-color: rgba(249, 250, 251, 0.05);
+  }
+
+  .bg-cyber-white\/10 {
+    background-color: rgba(249, 250, 251, 0.1);
+  }
+
+  .bg-cyber-white\/20 {
+    background-color: rgba(249, 250, 251, 0.2);
+  }
+
+  .bg-cyber-green\/5 {
+    background-color: rgba(16, 185, 129, 0.05);
+  }
+
+  .bg-cyber-green\/10 {
+    background-color: rgba(16, 185, 129, 0.1);
+  }
+
+  .bg-cyber-green\/20 {
+    background-color: rgba(16, 185, 129, 0.2);
+  }
+
+  .bg-cyber-green\/30 {
+    background-color: rgba(16, 185, 129, 0.3);
+  }
+
+  .border-cyber-white\/10 {
+    border-color: rgba(249, 250, 251, 0.1);
+  }
+
+  .border-cyber-white\/20 {
+    border-color: rgba(249, 250, 251, 0.2);
+  }
+
+  .border-cyber-green\/10 {
+    border-color: rgba(16, 185, 129, 0.1);
+  }
+
+  .border-cyber-green\/20 {
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+
+  .border-cyber-green\/30 {
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+
+  .hover\:border-cyber-green\/30:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+
+  .hover\:bg-cyber-green\/10:hover {
+    background-color: rgba(16, 185, 129, 0.1);
+  }
+
+  .hover\:bg-cyber-green\/20:hover {
+    background-color: rgba(16, 185, 129, 0.2);
+  }
+
+  .from-cyber-green\/10 {
+    --tw-gradient-from: rgba(16, 185, 129, 0.1);
+  }
+
+  .to-transparent {
+    --tw-gradient-to: transparent;
+  }
+
+  .hover\:text-cyber-green:hover {
+    color: var(--cyber-green);
+  }
+
+  .hover\:bg-cyber-white\/5:hover {
+    background-color: rgba(249, 250, 251, 0.05);
+  }
+
+  .hover\:bg-cyber-white\/10:hover {
+    background-color: rgba(249, 250, 251, 0.1);
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
